@@ -1,0 +1,34 @@
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<Emp> emps = new ArrayList<>();
+        emps.add(new Emp(5, "Harsh", 20000, 23));
+        emps.add(new Emp(2, "Tejasvi", 50000, 24));
+        emps.add(new Emp(1, "Rani", 100000, 25));
+        emps.add(new Emp(10, "Ankur", 30000, 26));
+
+        System.out.println(emps);
+        // // Comparable......
+        // Collections.sort(emps);
+        // System.out.println(emps);
+
+
+        // Comparator : -multiple logics
+
+        System.out.println("According to name sorted!!");
+
+        ArrayList<Emp> emp1 = new ArrayList<>(emps);
+
+        Collections.sort(emp1,new nameComparator());
+
+        System.out.println(emp1);
+
+
+        System.out.println();
+        System.out.println("According to age sorted!!");
+
+        Collections.sort(emp1 , new ageComparator());
+        System.out.println(emp1);
+
+    }
+}
