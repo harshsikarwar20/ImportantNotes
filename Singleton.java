@@ -1,62 +1,48 @@
-//  a java singleton class is a class that can have only one object (an instance of the class) at a time. After the first time,
-// if we try to instantiate the Java Singleton classes, the new variable also points to the first instance created. So whatever
-// modifications we do to any variable inside the class through any instance, affects the variable of the single instance created
-// and is visible if we access that variable through any variable of that class type defined. 
-class Singleton { 
-    // Static variable single_instance of type Singleton 
-    private static Singleton single_instance = null; 
-  
-    // Declaring a variable of type String 
-    public String s; 
-  
-    // Constructor of this class 
-    // Here private constructor is used to 
-    // restricted to this class itself 
-    private Singleton(){ 
-        s = "Hello I am a string part of Singleton class"; 
-    } 
-  
-    // Method 
-    // Static method to create instance of Singleton class 
-    public static Singleton Singleton(){ 
-        // To ensure only one instance is created 
-        if (single_instance == null) { 
-            single_instance = new Singleton(); 
-        } 
-        return single_instance; 
-    } 
-} 
-  
-// Class 2 
-// Main class 
-class GFG { 
-    // Main driver method 
-    public static void main(String args[]) 
-    { 
-        // Instantiating Singleton class with variable x 
-        Singleton x = Singleton.Singleton(); 
-  
-        // Instantiating Singleton class with variable y 
-        Singleton y = Singleton.Singleton(); 
-  
-        // instantiating Singleton class with variable z 
-        Singleton z = Singleton.Singleton(); 
-  
-        // Now  changing variable of instance x 
-        // via toUpperCase() method 
-        x.s = (x.s).toUpperCase(); 
-  
-        // Print and display commands 
-        System.out.println("String from x is " + x.s); 
-        System.out.println("String from y is " + y.s); 
-        System.out.println("String from z is " + z.s); 
-        System.out.println("\n"); 
-  
-        // Now again changing variable of instance z 
-        z.s = (z.s).toLowerCase(); 
-  
-        System.out.println("String from x is " + x.s); 
-        System.out.println("String from y is " + y.s); 
-        System.out.println("String from z is " + z.s); 
-    } 
+public class Singleton {
+    @SuppressWarnings("all")
+    public static void main(String[] args) {
+        Abc obj1 = Abc.getInstance();
+        Abc obj2 = Abc.getInstance(); // so everytime we are getting same instance
+    }
+}
+
+// class Abc{
+//     static Abc obj = new Abc(); // This object is static because the method is static 
+//     // Since this object is static it will we loaded when class is loaded and 
+//     // so it is global variable even if you are not using this object it will be there in the memory..
+//     // so this was one of the biggest drawback of singleton class.
+//     // so by default it is eager
+//     // so if we want to make it as lazy..
+
+//     private Abc(){
+
+//     }
+//     public static Abc getInstance(){
+//         return obj;
+//     }
+// }
+
+// Singleton means we can create one object of that class 
+/* 
+steps :-
+1. create static object of the class inside that class only
+2. create the private constructor.
+3. create a static method which returns the static object and you can give any name to the method.
+
+*/
+class Abc{
+    public static Abc obj;
+
+    private Abc(){
+        System.out.println("Instance created");
+    }
+
+    public static Abc getInstance(){
+        // obj = new Abc(); // If we use this without if condition then then multiple objects will be created.
+
+        if(obj==null){
+            obj = new Abc();
+        }
+        return obj;
+    }
 }
