@@ -8,9 +8,14 @@ public class Serial {
         try{
             Student student = new Student("Ankit","ankit@123",23,"Gwalior");
 
-        //write data to file
-            FileOutputStream fos = new FileOutputStream("file.txt");
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
+        
+            FileOutputStream fos = new FileOutputStream("file.txt");  //write data to file
+            // A file output stream is an output stream for writing data to a File or to a FileDescriptor .
+            
+            ObjectOutputStream oos = new ObjectOutputStream(fos); 
+            // An ObjectOutputStream writes primitive data types and graphs of Java objects to an OutputStream. 
+            // The objects can be read (reconstituted) using an ObjectInputStream. 
+            // Persistent storage of objects can be accomplished by using a file for the stream.
 
             // how to serialize
             oos.writeObject(student);
