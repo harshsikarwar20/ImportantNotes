@@ -1,11 +1,3 @@
-// Java program to illustrate 
-// tight coupling concept 
-class Volume  { 
-     public static void main(String args[]){ 
-         Box b = new Box(5,5,5); 
-         System.out.println(b.volume); 
-     } 
-} 
 class Box  { 
      public int volume; 
      Box(int length, int width, int height){ 
@@ -18,14 +10,21 @@ class Box  {
 // tight coupling concept 
 class Subject { 
     Topic t = new Topic(); 
-    public void startReading() 
-    { 
+    public void startReading() { 
         t.understand(); 
     } 
 } 
 class Topic { 
-    public void understand() 
-    { 
+    public void understand() { 
         System.out.println("Tight coupling concept"); 
     } 
 } 
+class Volume  { 
+     public static void main(String args[]){ 
+         Box b = new Box(5,5,5); 
+         System.out.println(b.volume); 
+
+         Subject s = new Subject();
+         s.startReading();
+     } 
+}
