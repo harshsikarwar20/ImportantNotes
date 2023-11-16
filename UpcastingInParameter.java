@@ -14,7 +14,7 @@ public class UpcastingInParameter {
             // this.rating = rating;
             System.out.println("Character Constructor");
         }
-        public Movie(Long rating){
+        public Movie(long rating){
             // this.rating = rating;
             System.out.println("Long Constructor");
         }
